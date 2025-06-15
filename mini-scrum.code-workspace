@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": ".",
+    },
+  ],
+  "settings": {
+    "eslint.validate": ["typescript", "typescriptreact", "html"],
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "always",
+    },
+    "prettier.configPath": "./.prettierrc",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+}
