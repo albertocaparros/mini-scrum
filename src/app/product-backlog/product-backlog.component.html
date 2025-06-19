@@ -1,0 +1,8 @@
+<div class="product-backlog-layout">
+  <h2>Product Backlog</h2>
+  <ul>
+    @for (item of items(); track item) {
+      <li>{{ item.title }}</li>
+    }
+  </ul>
+</div>

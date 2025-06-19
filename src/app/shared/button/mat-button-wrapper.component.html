@@ -1,0 +1,10 @@
+<button
+  [matButton]="appearance()"
+  [type]="type()"
+  [disabled]="disabled()"
+  [attr.aria-label]="ariaLabel()"
+  class="button"
+  (click)="onClick()"
+>
+  {{ label() }}
+</button>

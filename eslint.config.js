@@ -1,17 +1,17 @@
-const eslint = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const angular = require('angular-eslint');
-const prettier = require('eslint-plugin-prettier');
-const prettierConfig = require('eslint-config-prettier');
+import { configs } from '@eslint/js';
+import { config, configs as _configs } from 'typescript-eslint';
+import { configs as __configs, processInlineTemplates } from 'angular-eslint';
+import prettier from 'eslint-plugin-prettier';
+import prettierConfig from 'eslint-config-prettier';
 
-module.exports = tseslint.config(
+export default config(
   {
     files: ['**/*.ts'],
     extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.stylistic,
-      ...angular.configs.tsRecommended,
+      configs.recommended,
+      ..._configs.recommended,
+      ..._configs.stylistic,
+      ...__configs.tsRecommended,
       prettierConfig,
     ],
     plugins: {
@@ -36,15 +36,11 @@ module.exports = tseslint.config(
         },
       ],
     },
-    processor: angular.processInlineTemplates,
+    processor: processInlineTemplates,
   },
   {
     files: ['**/*.html'],
-    extends: [
-      ...angular.configs.templateRecommended,
-      ...angular.configs.templateAccessibility,
-      prettierConfig,
-    ],
+    extends: [...__configs.templateRecommended, ...__configs.templateAccessibility, prettierConfig],
     rules: {},
   },
 );

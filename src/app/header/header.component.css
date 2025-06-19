@@ -1,0 +1,19 @@
+header {
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  grid-area: header;
+}
+
+.theme-toggle-section {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+}

@@ -1,0 +1,12 @@
+<header>
+  <h1>{{ title }}</h1>
+
+  <div class="theme-toggle-section">
+    <mat-icon fontSet="fa" fontIcon="fa-sun" aria-hidden="false" aria-label="menu"></mat-icon>
+    <app-slide-toggle-wrapper
+      [hideIcon]="true"
+      (toggleEvent)="toggleTheme()"
+    ></app-slide-toggle-wrapper>
+    <mat-icon fontSet="fa" fontIcon="fa-moon" aria-hidden="false" aria-label="menu"></mat-icon>
+  </div>
+</header>
