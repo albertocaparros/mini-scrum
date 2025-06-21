@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { BacklogItem } from '../models/backlog-item';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormArray } from '@angular/forms';
-import { ProductBacklogService } from '../../product-backlog/services/product-backlog/product-backlog.service';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -25,17 +24,16 @@ export class AddItemFormComponent {
   form: FormGroup;
   private backlogItemId = 0;
 
-  constructor(
-    private fb: FormBuilder,
-    private productBacklogService: ProductBacklogService,
-  ) {
+  onItemAdd = output<BacklogItem>();
+
+  constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       title: ['', Validators.required],
       as: [''],
       want: [''],
       so: [''],
       requirements: [''],
-      priority: [1, [Validators.min(1), Validators.max(10)]],
+      priority: [1, [Validators.min(1), Validators.max(10), Validators.required]],
     });
   }
 
@@ -54,7 +52,7 @@ export class AddItemFormComponent {
         priority: formValue.priority || undefined,
       };
 
-      this.productBacklogService.addItem(newItem);
+      this.onItemAdd.emit(newItem);
       this.form.reset();
     }
   }

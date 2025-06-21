@@ -2,14 +2,19 @@
   <h2>Product Backlog</h2>
   <section>
     <article>
-      <ul>
+      <ul cdkDropList (cdkDropListDropped)="drop($event)">
         @for (item of items(); track item) {
-          <li>{{ item.title }}</li>
+          <app-expansion-backlog-item
+            class="list-item"
+            [item]="item"
+            cdkDrag
+            cdkDragLockAxis="y"
+          ></app-expansion-backlog-item>
         }
       </ul>
     </article>
     <aside>
-      <app-add-item-form></app-add-item-form>
+      <app-add-item-form (onItemAdd)="productBacklogService.addItem($event)"></app-add-item-form>
     </aside>
   </section>
 </div>

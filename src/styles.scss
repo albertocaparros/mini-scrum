@@ -7,13 +7,15 @@ html {
     (
       color: (
         primary: mat.$azure-palette,
-        tertiary: mat.$rose-palette,
         theme-type: light,
       ),
       typography: Roboto,
       density: 0,
     )
   );
+
+  --mat-sys-surface: #edf2f7;
+  --mat-sys-surface-container-low: #edf2f7;
 }
 
 html.dark-mode {
@@ -22,12 +24,14 @@ html.dark-mode {
   @include mat.theme(
     (
       color: (
-        primary: mat.$orange-palette,
-        tertiary: mat.$azure-palette,
+        primary: mat.$rose-palette,
         theme-type: dark,
       ),
     )
   );
+
+  --mat-sys-surface: #3b4a5e;
+  --mat-sys-surface-container-low: #3b4a5e;
 }
 
 html,

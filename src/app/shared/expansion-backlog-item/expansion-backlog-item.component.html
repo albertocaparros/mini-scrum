@@ -1,0 +1,29 @@
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <p>{{ item()?.title }}</p>
+      </mat-panel-title>
+      <mat-panel-description>
+        <strong>P{{ item()?.priority }}</strong>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    @if (item()?.as || item()?.want || item()?.so || item()?.requirements) {
+      @if (item()?.as) {
+        <p><strong>As a</strong> {{ item()?.as }}</p>
+      }
+      @if (item()?.want) {
+        <p><strong>I want to</strong> {{ item()?.want }}</p>
+      }
+      @if (item()?.so) {
+        <p><strong>So that</strong> {{ item()?.so }}</p>
+      }
+
+      @for (requirement of item()?.requirements; track requirement) {
+        <li>- {{ requirement }}</li>
+      }
+    } @else {
+      <p>This item has no information</p>
+    }
+  </mat-expansion-panel>
+</mat-accordion>

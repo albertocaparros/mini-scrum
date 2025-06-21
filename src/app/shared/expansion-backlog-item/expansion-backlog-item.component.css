@@ -1,0 +1,10 @@
+:host {
+  .mat-expansion-panel-header-title {
+    flex-grow: 4;
+  }
+
+  .mat-expansion-panel-header-description {
+    flex-grow: 0;
+    margin-right: 1rem;
+  }
+}

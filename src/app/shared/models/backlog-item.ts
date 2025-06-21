@@ -5,5 +5,5 @@ export interface BacklogItem {
   want?: string;
   so?: string;
   requirements?: string[];
-  priority?: number;
+  priority: number;
 }
