@@ -1,10 +1,39 @@
 .product-backlog-layout {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .product-backlog-layout {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 768) {
+  .product-backlog-layout {
+    max-width: 100%;
+    padding: 8px;
+  }
+}
+
+.product-backlog-layout section {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.product-backlog-layout section article {
+  flex: 1;
+}
+
+.product-backlog-layout section aside {
+  flex: 1;
 }
 
 .product-backlog-layout h2 {
@@ -13,7 +42,6 @@
 }
 
 .product-backlog-layout ul {
-  width: 600px;
   list-style-type: none;
   padding: 0;
   margin: 0;

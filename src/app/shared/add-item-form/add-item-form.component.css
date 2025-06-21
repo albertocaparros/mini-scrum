@@ -1,0 +1,31 @@
+.mat-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+mat-form-field {
+  display: block;
+  margin-bottom: 16px;
+}
+
+mat-card-actions {
+  margin-top: 16px;
+}
+
+button {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .mat-card {
+    padding: 12px;
+    margin: 8px;
+  }
+
+  mat-form-field {
+    margin-bottom: 12px;
+  }
+}

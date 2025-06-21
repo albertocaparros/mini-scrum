@@ -15,7 +15,6 @@ export class SlideToggleWrapperComponent {
   toggleEvent = output<void>();
 
   onToggleChange() {
-    console.log('k pa');
     this.toggleEvent.emit();
   }
 }

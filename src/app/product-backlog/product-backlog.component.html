@@ -1,8 +1,15 @@
 <div class="product-backlog-layout">
   <h2>Product Backlog</h2>
-  <ul>
-    @for (item of items(); track item) {
-      <li>{{ item.title }}</li>
-    }
-  </ul>
+  <section>
+    <article>
+      <ul>
+        @for (item of items(); track item) {
+          <li>{{ item.title }}</li>
+        }
+      </ul>
+    </article>
+    <aside>
+      <app-add-item-form></app-add-item-form>
+    </aside>
+  </section>
 </div>

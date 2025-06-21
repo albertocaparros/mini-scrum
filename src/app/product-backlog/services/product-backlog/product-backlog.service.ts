@@ -55,4 +55,8 @@ export class ProductBacklogService {
   getItems(): BacklogItem[] {
     return this.backlogItems;
   }
+
+  addItem(item: BacklogItem): void {
+    this.backlogItems.push(item);
+  }
 }
