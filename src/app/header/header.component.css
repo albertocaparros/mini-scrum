@@ -17,3 +17,33 @@ header {
   display: flex;
   align-items: baseline;
 }
+
+nav {
+  display: flex;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 0 1rem;
+  display: inline;
+}
+
+li a {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+}
+
+li a:hover:not(.active-link) {
+  cursor: pointer;
+  color: var(--mat-sys-primary);
+  transition: color 0.3s ease-in-out;
+}
+
+li .active-link {
+  font-weight: bold;
+  color: var(--mat-sys-primary);
+}

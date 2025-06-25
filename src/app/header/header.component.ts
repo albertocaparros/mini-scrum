@@ -1,10 +1,11 @@
 import { Component, DOCUMENT, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { SlideToggleWrapperComponent } from '../shared/slide-toggle-wrapper/slide-toggle-wrapper.component';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [MatIconModule, SlideToggleWrapperComponent],
+  imports: [MatIconModule, SlideToggleWrapperComponent, RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

@@ -1,6 +1,17 @@
 <header>
   <h1>{{ title }}</h1>
 
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+          >Product backlog</a
+        >
+      </li>
+      <li><a routerLink="sprint" routerLinkActive="active-link">Sprint backlog</a></li>
+    </ul>
+  </nav>
+
   <div class="theme-toggle-section">
     <mat-icon fontSet="fa" fontIcon="fa-sun" aria-hidden="false" aria-label="menu"></mat-icon>
     <app-slide-toggle-wrapper
