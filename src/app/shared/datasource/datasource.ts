@@ -25,4 +25,25 @@ export class DataSource {
       resolve();
     });
   }
+
+  getSprintBacklogItems(): Promise<BacklogItem[]> {
+    return new Promise(resolve => {
+      const data = localStorage.getItem('sprint-backlog-items');
+      if (data) {
+        try {
+          resolve(JSON.parse(data));
+        } catch {
+          resolve([]);
+        }
+      }
+      resolve([]);
+    });
+  }
+
+  saveSprintBacklogItems(items: BacklogItem[]): Promise<void> {
+    return new Promise(resolve => {
+      localStorage.setItem('sprint-backlog-items', JSON.stringify(items));
+      resolve();
+    });
+  }
 }

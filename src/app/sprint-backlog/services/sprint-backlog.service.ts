@@ -1,26 +1,32 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { BacklogServiceBase } from '../../shared/backlog-base/backlog-base.service';
+import { DataSource } from '../../shared/datasource/datasource';
 import { BacklogItem } from '../../shared/models/backlog-item';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class SprintBacklogService {
-  backlogItems = signal<BacklogItem[]>([]);
-
-  getItems(): BacklogItem[] {
-    return this.backlogItems();
+@Injectable({ providedIn: 'root' })
+export class SprintBacklogService extends BacklogServiceBase {
+  constructor(private dataSource: DataSource) {
+    super();
+    this.loadItems();
   }
 
-  addItem(item: BacklogItem): void {
-    this.backlogItems.update(previous => [...previous, item]);
+  async loadItems(): Promise<void> {
+    const items = await this.dataSource.getSprintBacklogItems();
+    this.backlogItems.set(items);
   }
 
-  moveItem(previousIndex: number, currentIndex: number): void {
-    const items = this.backlogItems();
-    const itemToMove = items[previousIndex];
-    const updatedItems = [...items];
-    updatedItems.splice(previousIndex, 1);
-    updatedItems.splice(currentIndex, 0, itemToMove);
-    this.backlogItems.set(updatedItems);
+  override async addItem(item: BacklogItem): Promise<void> {
+    super.addItem(item);
+    await this.dataSource.saveSprintBacklogItems(this.backlogItems());
+  }
+
+  override async moveItem(previousIndex: number, currentIndex: number): Promise<void> {
+    super.moveItem(previousIndex, currentIndex);
+    await this.dataSource.saveSprintBacklogItems(this.backlogItems());
+  }
+
+  override async removeItem(item: BacklogItem): Promise<void> {
+    super.removeItem(item);
+    await this.dataSource.saveSprintBacklogItems(this.backlogItems());
   }
 }

@@ -9,6 +9,7 @@
             [item]="item"
             cdkDrag
             cdkDragLockAxis="y"
+            (onDelete)="productBacklogService.removeItem(item)"
           ></app-expansion-backlog-item>
         }
       </ul>

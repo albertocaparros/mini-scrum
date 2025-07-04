@@ -1,14 +1,41 @@
 <div class="product-backlog-layout">
   <h2>Sprint Backlog</h2>
   <section>
+    <mat-chip-set
+      cdkDropList
+      [cdkDropListData]="productItems()"
+      id="list-one"
+      aria-label="Fish selection"
+      (cdkDropListDropped)="dropInProduct($event)"
+      [cdkDropListConnectedTo]="['list-two']"
+    >
+      @if (productItems().length === 0) {
+        <mat-chip class="empty-list">No items in the product backlog</mat-chip>
+      }
+      @for (item of productItems(); track item) {
+        <mat-chip cdkDrag>{{ item.title }}</mat-chip>
+      }
+    </mat-chip-set>
+  </section>
+  <section>
     <article>
-      <ul cdkDropList (cdkDropListDropped)="drop($event)">
-        @for (item of items(); track item) {
+      <ul
+        id="list-two"
+        cdkDropList
+        [cdkDropListData]="sprintItems()"
+        (cdkDropListDropped)="dropInSprint($event)"
+        [cdkDropListConnectedTo]="['list-one']"
+      >
+        @if (sprintItems().length === 0) {
+          <li class="empty-list">No items in the sprint backlog</li>
+        }
+
+        @for (item of sprintItems(); track item) {
           <app-expansion-backlog-item
             class="list-item"
             [item]="item"
             cdkDrag
-            cdkDragLockAxis="y"
+            (onDelete)="sprintBacklogService.removeItem(item)"
           ></app-expansion-backlog-item>
         }
       </ul>
