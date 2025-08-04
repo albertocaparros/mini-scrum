@@ -8,9 +8,8 @@ describe('SprintBacklogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SprintBacklogComponent]
-    })
-    .compileComponents();
+      imports: [SprintBacklogComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SprintBacklogComponent);
     component = fixture.componentInstance;

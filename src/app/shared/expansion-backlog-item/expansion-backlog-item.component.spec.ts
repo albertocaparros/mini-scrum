@@ -8,9 +8,8 @@ describe('ExpansionBacklogItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ExpansionBacklogItemComponent]
-    })
-    .compileComponents();
+      imports: [ExpansionBacklogItemComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ExpansionBacklogItemComponent);
     component = fixture.componentInstance;

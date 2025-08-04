@@ -1,4 +1,3 @@
-import { configs } from '@eslint/js';
 import { config, configs as _configs } from 'typescript-eslint';
 import { configs as __configs, processInlineTemplates } from 'angular-eslint';
 import prettier from 'eslint-plugin-prettier';
@@ -8,7 +7,6 @@ export default config(
   {
     files: ['**/*.ts'],
     extends: [
-      configs.recommended,
       ..._configs.recommended,
       ..._configs.stylistic,
       ...__configs.tsRecommended,
